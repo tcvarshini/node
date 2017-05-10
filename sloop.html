@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<meta http-equiv="Content-Type" Content="text/html;charset=utf-8"/> 
+<meta content="utf-8" http-equiv="encoding">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="Ctrl"> 
+
+
+    
+    <p> {{ names }} </p>
+  
+
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('Ctrl', function($scope, $http) {
+    $http.get("http://172.17.10.129:4737/api/students")
+    .success(function (data) { $scope.names = data;});
+});
+</script>
+
+</body>
+</html>
